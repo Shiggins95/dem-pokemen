@@ -24,7 +24,7 @@ const SortButton: FC<SortButtonProps> = ({
     return (
         <div className="sort-button-container">
             <button onClick={() => handleClick()}>
-                Sort by <span>{label}</span> (
+                Sort by {label} (
                 {direction === 'ASC' || !direction
                     ? ascendingLabel
                     : descendingLabel}

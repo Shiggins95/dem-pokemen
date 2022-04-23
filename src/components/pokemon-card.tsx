@@ -6,7 +6,9 @@ const PokemonCard: FC<PokemonCardProps> = ({
 }: PokemonCardProps): ReactElement => {
     return (
         <div className="pokemon-card">
-            <p>Pokemon: {pokemon.name}</p>
+            <div className="card-content">
+                <p>Pokemon: {pokemon.name}</p>
+            </div>
         </div>
     );
 };

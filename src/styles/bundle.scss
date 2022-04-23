@@ -1,11 +1,17 @@
 @import "variables";
 @import "mixins";
 @import "pokemon-view";
-@import "preloader";
+@import "error-modal";
 @import "text-input";
 @import "filter-bar";
 @import "sort-button";
+@import "pokemon-card";
+@import "preloader";
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Poppins;
+  color: $font;
 }

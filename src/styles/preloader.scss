@@ -4,37 +4,133 @@
   position: fixed;
   top: 0;
   left: 0;
-  background: rgba(0,0,0,0.5);
   @include flex-center-row;
+  background: white;
+  z-index: 1000;
   .preloader-content {
-    height: 250px;
-    width: 500px;
-    display: grid;
-    grid-template-rows: 75px auto;
-    border: 2px solid $dark-yellow;
-    background: $light;
-    border-radius: 25px;
-    * {
-      font-family: Poppins;
-      text-align: center;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 2px solid black;
+    position: relative;
+    &.preloader-still {
+      animation: none;
+    }
+    &.preloader-active {
+      animation: rotate 1s ease infinite;
     }
     div {
+      position: absolute;
+    }
+    .pokeball-top {
+      height: 100px;
+      width: 100%;
+      background: red radial-gradient(circle, rgb(255, 111, 111) 20%, rgba(255,0,0,0) 100%);
+      z-index: 1001;
+      border-top-left-radius: 102px;
+      border-top-right-radius: 102px;
+    }
+    .pokeball-center {
+      background: black;
+      height: 20px;
+      width: 100%;
+      top: 90px;
+      z-index: 1002;
       @include flex-center-row;
+      .circle {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: black;
+        @include flex-center-row;
+        .inner-circle {
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          background: white;
+          @include flex-center-row;
+          .inner-inner-circle {
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: white;
+            border: 2px solid black;
+            &.capture {
+              animation: captured 1s ease 3;
+            }
+          }
+
+        }
+      }
     }
-    .title {
-      font-weight: 900;
-      letter-spacing: 2px;
-      border-bottom: 2px solid $dark-yellow;
-      color: $font;
-      padding: 0 25px;
-    }
-    .message {
-      color: $font;
-      padding: 0 25px;
+    .pokeball-bottom {
+      height: 100px;
+      width: 100%;
+      background: white;
+      z-index: 1000;
+      bottom: 0;
+      border-bottom-left-radius: 102px;
+      border-bottom-right-radius: 102px;
     }
   }
 }
 
-.error .preloader-content {
-  background: $red;
+.transition {
+  width: 4000px;
+  height: 4000px;
+  position: fixed;
+  top: calc((100% - 4000px) / 2);
+  left: calc((100% - 4000px) / 2);
+  animation: post-capture 1s ease;
+  z-index: 2000;
+  background: radial-gradient(circle, rgb(255, 129, 129) 0%, rgba(255,0,0,0) 100%);
+  border-radius: 50%;
+}
+
+
+.fade {
+  animation: fade 0.5s ease;
+  opacity: 0;
+  * {
+    opacity: 0 !important;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes captured {
+  0% {
+    background: white;
+  }
+  50% {
+    background: rgba(255, 78, 78, 0.6);
+  }
+  100% {
+    background: white;
+  }
+}
+
+@keyframes post-capture {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }

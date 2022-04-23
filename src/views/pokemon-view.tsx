@@ -1,18 +1,22 @@
+/* eslint-disable no-unused-vars */
 import React, { ReactElement, useEffect, useState } from 'react';
 import axios from 'axios';
 import { PokemonResponse } from '../types/requests';
 import { PokemonSpecies } from '../types/general-types';
-import Preloader from '../components/preloader';
+import ErrorModal from '../components/error-modal';
 import PokemonCard from '../components/pokemon-card';
 import { useDispatch, useSelector } from 'react-redux';
 import { PokemonReducer } from '../types/redux';
 import { setAllPokemons } from '../redux/actions/pokemon-actions';
 import { getRequiredPokemonInfo } from '../helpers/data-formatter';
 import FilterBar from '../components/filter-bar';
+import Preloader from '../components/preloader';
 
 const PokemonView = (): ReactElement => {
     const dispatch = useDispatch();
     const { pokemon } = useSelector((state: PokemonReducer) => state.pokemon);
+    const [triggerCapture, setTriggerCapture] = useState(false);
+    const [display, setDisplay] = useState(false);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
 
@@ -37,6 +41,7 @@ const PokemonView = (): ReactElement => {
     };
 
     const getPokemon = async () => {
+        setDisplay(false);
         try {
             const response = await axios.get(
                 'https://pokeapi.co/api/v2/generation/1',
@@ -50,28 +55,34 @@ const PokemonView = (): ReactElement => {
     useEffect(() => {
         setLoading(true);
         getPokemon().then(() => {
-            setLoading(false);
+            setTriggerCapture(true);
+            setDisplay(true);
         });
         console.log('i call once ');
     }, []);
+
+    const onLoadFinish = () => {
+        setLoading(false);
+        setTriggerCapture(false);
+    };
 
     return (
         <div className="pokemon-main-view">
             {loading && (
                 <Preloader
-                    type="progress"
-                    title="Retrieving pokémon"
-                    message="We are working on retrieving the pokémon information. Don't let team rocket find out!"
+                    onCompleteCallback={() => onLoadFinish()}
+                    triggerDisplay={() => setDisplay(true)}
+                    showCapture={triggerCapture}
                 />
             )}
             {error && (
-                <Preloader
+                <ErrorModal
                     type="error"
                     title="Request failed"
                     message="Looks like Team Rocket have been interfering with our communications again!"
                 />
             )}
-            {!loading && (
+            {display && (
                 <div className="content">
                     <FilterBar />
                     <div className="pokemon-cards">

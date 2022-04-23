@@ -30,9 +30,6 @@
     &::placeholder {
       visibility: hidden;
     }
-    &:focus {
-      outline-color: $light;
-    }
   }
   button {
     background: $blue;

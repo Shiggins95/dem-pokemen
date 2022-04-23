@@ -12,7 +12,9 @@ const FilterBar = (): ReactElement => {
         pokemon: { allPokemon, pokemon },
         filter: { name },
     } = useSelector((state: PokemonReducer) => state);
+
     const dispatch = useDispatch();
+
     const handlePokemonNameFilterChange = (value: string) => {
         dispatch(setFilterName(value));
         if (!value) {
@@ -45,6 +47,7 @@ const FilterBar = (): ReactElement => {
         });
         dispatch(setPokemons(newArr));
     };
+
     return (
         <div className="filter-bar">
             <TextInput
