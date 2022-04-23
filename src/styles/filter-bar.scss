@@ -5,8 +5,9 @@
   top: 0;
   left: 0;
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   align-items: center;
   background: $blue;
   padding: 16px;
+  grid-gap: 16px;
 }

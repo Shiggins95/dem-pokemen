@@ -1,4 +1,4 @@
-import { PokemonSpecies } from './requests';
+import { PokemonSpecies } from './general-types';
 
 export interface PokemonCardProps {
     pokemon: PokemonSpecies;

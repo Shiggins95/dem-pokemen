@@ -1,6 +1,7 @@
 import React, { ReactElement, useEffect, useState } from 'react';
 import axios from 'axios';
-import { PokemonResponse, PokemonSpecies } from '../types/requests';
+import { PokemonResponse } from '../types/requests';
+import { PokemonSpecies } from '../types/general-types';
 import Preloader from '../components/preloader';
 import PokemonCard from '../components/pokemon-card';
 import { useDispatch, useSelector } from 'react-redux';

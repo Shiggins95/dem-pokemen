@@ -1,4 +1,4 @@
-import { PokemonSpecies } from '../types/requests';
+import { PokemonSpecies } from '../types/general-types';
 
 /**
  * formatter function to extract the exact information required to optimise redux storage as using raw object
@@ -6,6 +6,7 @@ import { PokemonSpecies } from '../types/requests';
  */
 export const getRequiredPokemonInfo = (rawObject: any): PokemonSpecies => {
     return {
+        id: rawObject.id,
         name: rawObject.name,
         abilities: rawObject.abilities.map((ability: any) => ({
             name: ability.ability.name,

@@ -1,4 +1,4 @@
-import { PokemonSpecies } from '../../types/requests';
+import { PokemonSpecies } from '../../types/general-types';
 import {
     PokemonActionType,
     PokemonState,

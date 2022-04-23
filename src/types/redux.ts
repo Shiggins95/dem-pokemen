@@ -1,4 +1,4 @@
-import { PokemonSpecies } from './requests';
+import { PokemonSpecies } from './general-types';
 
 export interface ReducerAction<ActionType, PayloadType = null> {
     type: ActionType;
@@ -20,4 +20,4 @@ export interface PokemonReducer {
 
 export type PokemonActionType = 'SET_POKEMONS' | 'SET_ALL_POKEMONS';
 
-export type FilterActionType = 'SET_NAME';
+export type FilterActionType = 'SET_POKEMON_NAME';

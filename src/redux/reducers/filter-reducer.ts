@@ -13,7 +13,7 @@ const reducer = (
     action: ReducerAction<FilterActionType, string>,
 ) => {
     switch (action.type) {
-        case 'SET_NAME':
+        case 'SET_POKEMON_NAME':
             return { ...state, name: action.payload };
         default:
             return state;
