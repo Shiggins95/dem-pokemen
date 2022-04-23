@@ -20,5 +20,6 @@ module.exports = {
         'quote-props': 'off',
         'object-curly-spacing': 'off',
         'require-jsdoc': 'off',
+        'valid-jsdoc': 'off',
     },
 };

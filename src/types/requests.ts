@@ -1,9 +1,10 @@
 export interface PokemonAbility {
-    ability: { name: string };
+    name: string;
+    hidden: boolean;
 }
 
 export interface PokemonMove {
-    move: { name: string };
+    name: string;
 }
 
 export interface PokemonSprites {
@@ -14,12 +15,13 @@ export interface PokemonSprites {
 }
 
 export interface PokemonStat {
-    base_stat: number;
-    stat: { name: string };
+    base: number;
+    name: string;
 }
 
 export interface PokemonType {
-    type: { name: string };
+    name: string;
+    slot: number;
 }
 
 export interface PokemonSpecies {
