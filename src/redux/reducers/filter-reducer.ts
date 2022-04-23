@@ -2,7 +2,7 @@ import {
     FilterActionType,
     FilterState,
     ReducerAction,
-} from '../../types/general/redux';
+} from '../../types/redux';
 
 const startingState: FilterState = {
     name: '',

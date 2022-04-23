@@ -1,4 +1,4 @@
-import { FilterActionType, ReducerAction } from '../../types/general/redux';
+import { FilterActionType, ReducerAction } from '../../types/redux';
 
 export const setFilterName = (
     payload: string,

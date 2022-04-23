@@ -1,0 +1,12 @@
+.filter-bar {
+  width: 100%;
+  height: $filter-bar-height;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  align-items: center;
+  background: $blue;
+  padding: 16px;
+}

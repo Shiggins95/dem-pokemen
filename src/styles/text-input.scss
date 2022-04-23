@@ -1,0 +1,59 @@
+.input-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  * {
+    color: $font;
+  }
+  label {
+    top: calc((100% - 14px) / 2);
+    line-height: 14px;
+    position: absolute;
+    left: 22px;
+    transition: 0.5s ease;
+    font-size: 12px;
+    padding: 0 4px;
+    background: $blue;
+    font-weight: 900;
+    font-family: Poppins;
+    letter-spacing: 2px;
+  }
+  input {
+    font-family: Poppins;
+    height: 80%;
+    width: 100%;
+    background: $blue;
+    border: 2px solid $dark-blue;
+    border-radius: 4px;
+    padding: 0 10px;
+    font-size: 12px;
+    &::placeholder {
+      visibility: hidden;
+    }
+    &:focus {
+      outline-color: $light;
+    }
+  }
+  button {
+    background: $blue;
+    margin-left: 10px;
+    height: 80%;
+    border: none;
+    cursor: pointer;
+    svg {
+      fill: $dark-blue;
+      transform: scale(1.5);
+    }
+  }
+  &.active {
+    input::placeholder {
+      visibility: visible ;
+    }
+    label {
+      top: 14px;
+      transition: 0.5s ease;
+    }
+  }
+}
