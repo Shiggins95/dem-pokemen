@@ -14,11 +14,14 @@ module.exports = {
     },
     plugins: ['react', '@typescript-eslint'],
     rules: {
-        'max-len': ['error', { ignoreComments: true, code: 120 }],
+        'max-len': ['error', { ignoreComments: true, code: 140 }],
         prettier: 'off',
         indent: 'off',
         'quote-props': 'off',
         'object-curly-spacing': 'off',
         'require-jsdoc': 'off',
+        'valid-jsdoc': 'off',
+        'operator-linebreak': 'off',
+        'no-invalid-this': 'off'
     },
 };

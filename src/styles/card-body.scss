@@ -1,0 +1,38 @@
+.pokemon-card-body {
+  padding: 8px 0 0 0;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  height: 100%;
+  .sprite-buttons {
+    width: 100%;
+    display: grid;
+    grid-template: 1fr 1fr / 1fr 1fr;
+    grid-gap: 5px;
+    button {
+      @include button(2px);
+      width: 100%;
+      height: 100%;
+      padding: 5px;
+      line-height: 12px;
+      font-size: 12px;
+      &:active {
+        transform: translateY(1px);
+      }
+      &.selected {
+        border-color: $pokemon-light-blue;
+        background: $pokemon-dark-blue;
+      }
+    }
+  }
+  .main-body {
+    width: 100%;
+    height: 100%;
+    @include flex-center-row;
+    align-items: flex-end;
+    button {
+      @include button(2px);
+      width: 100%;
+      height: 50px;
+    }
+  }
+}
