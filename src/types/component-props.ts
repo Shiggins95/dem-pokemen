@@ -1,4 +1,4 @@
-import { PokemonSpecies } from './general-types';
+import { PokemonSpecies, PokemonSprite } from './general-types';
 
 export interface PokemonCardProps {
     pokemon: PokemonSpecies;
@@ -10,4 +10,10 @@ export interface TextInputProps {
     label: string;
     id: string;
     placeholder: string;
+}
+
+export interface CardBodyProps {
+    pokemon: PokemonSpecies;
+    currentSprite: PokemonSprite;
+    setCurrentSprite: (value: PokemonSprite) => void;
 }

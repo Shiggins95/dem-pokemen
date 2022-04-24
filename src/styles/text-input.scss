@@ -3,7 +3,7 @@
   height: 100%;
   @include flex-center-row;
   * {
-    color: $dark-blue;
+    color: $pokemon-yellow;
   }
   label {
     top: calc((100% - 14px) / 2);
@@ -13,7 +13,7 @@
     transition: 0.1s ease;
     font-size: 12px;
     padding: 0 4px;
-    background: $blue;
+    background: $pokemon-light-blue;
     font-weight: 900;
     font-family: Poppins;
     letter-spacing: 2px;
@@ -22,8 +22,8 @@
     font-family: Poppins;
     height: 80%;
     width: 100%;
-    background: $blue;
-    border: 2px solid $dark-blue;
+    background: $pokemon-light-blue;
+    border: 2px solid $pokemon-dark-blue;
     border-radius: 4px;
     padding: 0 10px;
     font-size: 12px;
@@ -32,19 +32,20 @@
     }
   }
   button {
-    background: $blue;
+    background: $pokemon-light-blue;
     margin-left: 10px;
     height: 80%;
     border: none;
     cursor: pointer;
     svg {
-      fill: $dark-blue;
+      fill: $pokemon-yellow;
       transform: scale(1.5);
     }
   }
   &.active {
     input::placeholder {
       visibility: visible ;
+      color: $pokemon-yellow;
     }
     label {
       top: 14px;

@@ -17,9 +17,17 @@ export interface PokemonSprites {
     front_shiny: string;
 }
 
+export type PokemonStatName =
+    | 'hp'
+    | 'attack'
+    | 'defence'
+    | 'special-attack'
+    | 'special-defence'
+    | 'speed';
+
 export interface PokemonStat {
     base: number;
-    name: string;
+    name: PokemonStatName;
 }
 
 export type PokemonTypeName =
@@ -55,3 +63,5 @@ export interface PokemonSpecies {
     stats: PokemonStat[];
     types: PokemonType[];
 }
+
+export type PokemonSprite = keyof PokemonSprites;

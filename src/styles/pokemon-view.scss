@@ -1,5 +1,7 @@
 .pokemon-main-view {
-  padding-top: $filter-bar-height;
+  margin-top: $filter-bar-height;
+  background: $pokemon-light-blue;
+  border-top: 5px solid $pokemon-yellow;
   .pokemon-cards {
     padding: 50px 0;
     width: 100%;
