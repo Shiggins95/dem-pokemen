@@ -32,6 +32,15 @@ const PokemonView = (): ReactElement => {
                         getRequiredPokemonInfo(response.data),
                     );
                 }
+                const types: string[] = [];
+                populatedPokemon.forEach((pokemon) => {
+                    pokemon.types.forEach((type) => {
+                        if (types.indexOf(type.name) === -1) {
+                            types.push(type.name);
+                        }
+                    });
+                });
+                console.log('types', JSON.stringify(types));
                 dispatch(setAllPokemons(populatedPokemon));
                 return resolve(true);
             } catch (e) {

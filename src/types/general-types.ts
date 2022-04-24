@@ -22,8 +22,27 @@ export interface PokemonStat {
     name: string;
 }
 
+export type PokemonTypeName =
+    | 'grass'
+    | 'poison'
+    | 'fire'
+    | 'water'
+    | 'bug'
+    | 'normal'
+    | 'flying'
+    | 'ground'
+    | 'fighting'
+    | 'psychic'
+    | 'rock'
+    | 'electric'
+    | 'fairy'
+    | 'steel'
+    | 'ghost'
+    | 'ice'
+    | 'dragon';
+
 export interface PokemonType {
-    name: string;
+    name: PokemonTypeName;
     slot: number;
 }
 
