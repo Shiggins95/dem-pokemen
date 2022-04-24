@@ -9,13 +9,12 @@
     grid-template: 1fr 1fr / 1fr 1fr;
     grid-gap: 5px;
     button {
-      @include pokemon-colors(2px);
+      @include button(2px);
       width: 100%;
       height: 100%;
       padding: 5px;
       line-height: 12px;
       font-size: 12px;
-      cursor: pointer;
       &:active {
         transform: translateY(1px);
       }
@@ -31,7 +30,7 @@
     @include flex-center-row;
     align-items: flex-end;
     button {
-      @include pokemon-colors(2px);
+      @include button(2px);
       width: 100%;
       height: 50px;
     }

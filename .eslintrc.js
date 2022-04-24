@@ -22,5 +22,6 @@ module.exports = {
         'require-jsdoc': 'off',
         'valid-jsdoc': 'off',
         'operator-linebreak': 'off',
+        'no-invalid-this': 'off'
     },
 };

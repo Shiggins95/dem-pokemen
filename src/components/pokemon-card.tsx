@@ -9,6 +9,7 @@ const PokemonCard: FC<PokemonCardProps> = ({
     pokemon,
 }: PokemonCardProps): ReactElement => {
     const imageRef = useRef<HTMLImageElement>(null);
+    const [renders, setRenders] = useState(0);
     const [currentSprite, setCurrentSprite] =
         useState<PokemonSprite>('front_default');
 
@@ -18,7 +19,12 @@ const PokemonCard: FC<PokemonCardProps> = ({
     };
 
     useEffect(() => {
-        if (!imageRef.current || currentSprite.indexOf('front') === -1) {
+        if (
+            !imageRef.current ||
+            currentSprite.indexOf('front') === -1 ||
+            renders === 0
+        ) {
+            setRenders(renders + 1);
             return;
         }
         const states = [
@@ -34,6 +40,7 @@ const PokemonCard: FC<PokemonCardProps> = ({
             iterations: 1,
         };
         imageRef.current.animate(states, options);
+        setRenders(renders + 1);
     }, [currentSprite]);
 
     return (

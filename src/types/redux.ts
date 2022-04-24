@@ -11,6 +11,7 @@ export interface FilterState {
 export interface PokemonState {
     pokemon: PokemonSpecies[];
     allPokemon: PokemonSpecies[];
+    currentPokemonViewing: PokemonSpecies | null;
 }
 
 export interface PokemonReducer {
@@ -18,6 +19,9 @@ export interface PokemonReducer {
     pokemon: PokemonState;
 }
 
-export type PokemonActionType = 'SET_POKEMONS' | 'SET_ALL_POKEMONS';
+export type PokemonActionType =
+    | 'SET_POKEMONS'
+    | 'SET_ALL_POKEMONS'
+    | 'SET_CURRENT_POKEMON';
 
 export type FilterActionType = 'SET_POKEMON_NAME';

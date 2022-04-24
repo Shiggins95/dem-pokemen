@@ -30,18 +30,6 @@
       img {
         height: 200px;
       }
-      .front_default, .front_shiny, .back_default, .back_shiny {
-        animation: appear-in 3s ease;
-      }
     }
-  }
-}
-
-@keyframes appear-in {
-  from {
-    transform: scale(0);
-  }
-  to {
-    transform: scale(1);
   }
 }

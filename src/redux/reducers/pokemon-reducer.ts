@@ -8,11 +8,15 @@ import {
 const startingState: PokemonState = {
     pokemon: [],
     allPokemon: [],
+    currentPokemonViewing: null,
 };
 
 const reducer = (
     state = startingState,
-    action: ReducerAction<PokemonActionType, PokemonSpecies[]>,
+    action: ReducerAction<
+        PokemonActionType,
+        PokemonSpecies[] | PokemonSpecies | null
+    >,
 ) => {
     switch (action.type) {
         case 'SET_ALL_POKEMONS':
@@ -23,6 +27,8 @@ const reducer = (
             };
         case 'SET_POKEMONS':
             return { ...state, pokemon: action.payload };
+        case 'SET_CURRENT_POKEMON':
+            return { ...state, currentPokemonViewing: action.payload };
         default:
             return state;
     }

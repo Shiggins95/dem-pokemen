@@ -5,7 +5,7 @@
   top: 0;
   left: 0;
   @include flex-center-row;
-  background: white;
+  background: $pokemon-light-blue;
   z-index: 1000;
   .preloader-content {
     width: 200px;

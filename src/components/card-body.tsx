@@ -1,12 +1,15 @@
 import React, { FC, ReactElement } from 'react';
 import { CardBodyProps } from '../types/component-props';
 import { PokemonSprite } from '../types/general-types';
+import { setCurrentPokemon } from '../redux/actions/pokemon-actions';
+import { useDispatch } from 'react-redux';
 
 const CardBody: FC<CardBodyProps> = ({
     pokemon,
     currentSprite,
     setCurrentSprite,
 }: CardBodyProps): ReactElement => {
+    const dispatch = useDispatch();
     const getClassName = (comparison: PokemonSprite) => {
         return currentSprite === comparison ? 'selected' : '';
     };
@@ -39,7 +42,9 @@ const CardBody: FC<CardBodyProps> = ({
                 </button>
             </div>
             <div className="main-body">
-                <button>View details</button>
+                <button onClick={() => dispatch(setCurrentPokemon(pokemon))}>
+                    View details
+                </button>
             </div>
         </div>
     );

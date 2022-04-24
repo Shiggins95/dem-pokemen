@@ -19,6 +19,11 @@
   border: $border-size solid $pokemon-dark-blue;
   color: $pokemon-yellow;
   background: $pokemon-light-blue;
+}
+
+@mixin button($border-size) {
   font-weight: bold;
   letter-spacing: 2px;
+  cursor: pointer;
+  @include pokemon-colors($border-size);
 }

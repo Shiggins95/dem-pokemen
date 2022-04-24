@@ -17,3 +17,12 @@ export const setAllPokemons = (
         payload,
     };
 };
+
+export const setCurrentPokemon = (
+    payload: PokemonSpecies | null,
+): ReducerAction<PokemonActionType, PokemonSpecies | null> => {
+    return {
+        type: 'SET_CURRENT_POKEMON',
+        payload,
+    };
+};

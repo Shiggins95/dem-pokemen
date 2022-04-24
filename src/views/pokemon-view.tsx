@@ -7,14 +7,20 @@ import ErrorModal from '../components/error-modal';
 import PokemonCard from '../components/pokemon-card';
 import { useDispatch, useSelector } from 'react-redux';
 import { PokemonReducer } from '../types/redux';
-import { setAllPokemons } from '../redux/actions/pokemon-actions';
+import {
+    setAllPokemons,
+    setCurrentPokemon,
+} from '../redux/actions/pokemon-actions';
 import { getRequiredPokemonInfo } from '../helpers/data-formatter';
 import FilterBar from '../components/filter-bar';
 import Preloader from '../components/preloader';
+import PokemonViewingModal from '../components/pokemon-viewing-modal';
 
 const PokemonView = (): ReactElement => {
     const dispatch = useDispatch();
-    const { pokemon } = useSelector((state: PokemonReducer) => state.pokemon);
+    const { pokemon, currentPokemonViewing } = useSelector(
+        (state: PokemonReducer) => state.pokemon,
+    );
     const [triggerCapture, setTriggerCapture] = useState(false);
     const [display, setDisplay] = useState(false);
     const [loading, setLoading] = useState(false);
@@ -61,19 +67,29 @@ const PokemonView = (): ReactElement => {
         }
     };
 
+    const onLoadFinish = () => {
+        setLoading(false);
+        setTriggerCapture(false);
+    };
+
     useEffect(() => {
         setLoading(true);
         getPokemon().then(() => {
             setTriggerCapture(true);
             setDisplay(true);
         });
-        console.log('i call once ');
     }, []);
 
-    const onLoadFinish = () => {
-        setLoading(false);
-        setTriggerCapture(false);
-    };
+    useEffect(() => {
+        const html = document.querySelector('html');
+        if (!currentPokemonViewing) {
+            html?.classList.remove('no-scroll');
+            html?.classList.add('scroll');
+            return;
+        }
+        html?.classList.remove('scroll');
+        html?.classList.add('no-scroll');
+    }, [currentPokemonViewing]);
 
     return (
         <div className="pokemon-main-view">
@@ -100,6 +116,9 @@ const PokemonView = (): ReactElement => {
                         ))}
                     </div>
                 </div>
+            )}
+            {currentPokemonViewing && (
+                <PokemonViewingModal pokemon={currentPokemonViewing} />
             )}
         </div>
     );
