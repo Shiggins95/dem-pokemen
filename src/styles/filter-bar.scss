@@ -1,0 +1,16 @@
+.filter-bar {
+  width: 100%;
+  height: $filter-bar-height;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  background: $pokemon-light-blue;
+  padding: 16px;
+  grid-gap: 16px;
+  *:focus {
+    outline-color: $pokemon-yellow;
+  }
+}

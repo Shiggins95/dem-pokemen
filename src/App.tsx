@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './styles/bundle.scss';
 import thunk from 'redux-thunk';
 import { applyMiddleware, compose, createStore } from 'redux';
 import rootReducer from './redux/reducers';
