@@ -15,15 +15,12 @@
     padding: 0 4px;
     background: $pokemon-light-blue;
     font-weight: 900;
-    font-family: Poppins;
     letter-spacing: 2px;
   }
   input {
-    font-family: Poppins;
+    @include pokemon-colors(2px);
     height: 80%;
     width: 100%;
-    background: $pokemon-light-blue;
-    border: 2px solid $pokemon-dark-blue;
     border-radius: 4px;
     padding: 0 10px;
     font-size: 12px;

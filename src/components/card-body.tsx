@@ -20,16 +20,16 @@ const CardBody: FC<CardBodyProps> = ({
                     Front
                 </button>
                 <button
-                    className={getClassName('back_default')}
-                    onClick={() => setCurrentSprite('back_default')}
-                >
-                    Back
-                </button>
-                <button
                     className={getClassName('front_shiny')}
                     onClick={() => setCurrentSprite('front_shiny')}
                 >
                     Front shiny
+                </button>
+                <button
+                    className={getClassName('back_default')}
+                    onClick={() => setCurrentSprite('back_default')}
+                >
+                    Back
                 </button>
                 <button
                     className={getClassName('back_shiny')}
@@ -37,6 +37,9 @@ const CardBody: FC<CardBodyProps> = ({
                 >
                     Back shiny
                 </button>
+            </div>
+            <div className="main-body">
+                <button>View details</button>
             </div>
         </div>
     );
