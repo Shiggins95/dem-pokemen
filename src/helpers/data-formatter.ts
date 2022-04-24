@@ -43,7 +43,7 @@ const colorMapping: { [key: string]: string } = {
     psychic: 'rgb(168,0,255)',
     rock: 'rgb(210,132,57)',
     steel: 'rgb(194,194,194)',
-    water: 'rgb(90,134,255)',
+    water: 'rgb(61,115,255)',
 };
 
 export const getPokemonBackgroundFromType = (
